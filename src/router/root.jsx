@@ -33,6 +33,7 @@ const AdminOrdMgrPage = lazy(() =>
 const AdminUserInfoMgrPage = lazy(() =>
   import("../components/admin/user/UserInfoMgr")
 );
+const Helpcenter = lazy(() => import("../pages/helpcenter/HelpCenterPage"));
 const Loading = <div>Loading...</div>;
 
 const root = createBrowserRouter([
@@ -174,6 +175,14 @@ const root = createBrowserRouter([
       </Suspense>
     ),
     children: adminRouter(),
+  },
+  {
+    path: "helpcenter",
+    element: (
+      <Suspense fallback={Loading}>
+        <Helpcenter />
+      </Suspense>
+    ),
   },
 ]);
 
