@@ -20,6 +20,8 @@ const MyPageCouponsPage = lazy(() =>
 const MyPageWithdrawPage = lazy(() =>
   import("../pages/mypage/MyPageWithdrawPage")
 );
+const MyProductPageQnA = lazy(() => import("../pages/mypage/MyProductQnA"));
+const MyPageReviewPage = lazy(() => import("../pages/mypage/MyPageReviewPage"));
 
 const mypageRouter = () => {
   return [
@@ -76,6 +78,22 @@ const mypageRouter = () => {
       element: (
         <Suspense fallback={Loading}>
           <MyPageWithdrawPage />
+        </Suspense>
+      ),
+    },
+    {
+      path: "productqna",
+      element: (
+        <Suspense fallback={Loading}>
+          <MyProductPageQnA />
+        </Suspense>
+      ),
+    },
+    {
+      path: "reviews",
+      element: (
+        <Suspense fallback={Loading}>
+          <MyPageReviewPage />
         </Suspense>
       ),
     },
