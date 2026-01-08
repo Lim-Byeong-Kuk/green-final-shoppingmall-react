@@ -48,42 +48,6 @@ export default function SignUpChoiceModal({
             회원가입
           </button>
         </div>
-
-        <div className="my-6 h-px bg-zinc-200" />
-
-        <div className="text-center">
-          <h3 className="text-xl font-bold">SNS로 회원가입</h3>
-          <p className="text-sm text-zinc-500 mt-1">
-            SNS 계정으로 간편하게 가입합니다.
-          </p>
-
-          <div className="mt-4 flex justify-center gap-3">
-            <button
-              onClick={() => onSNS("naver")}
-              className="cursor-pointer h-11 min-w-[88px] rounded-md bg-[#2DB400] text-white font-semibold px-4
-            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2DB400]/60"
-              title="네이버"
-            >
-              네이버
-            </button>
-            <button
-              onClick={() => onSNS("kakao")}
-              className="cursor-pointer h-11 min-w-[88px] rounded-md bg-[#FEE500] text-black font-semibold px-4
-            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FEE500]/60"
-              title="카카오"
-            >
-              카카오
-            </button>
-            <button
-              onClick={() => onSNS("google")}
-              className="cursor-pointer h-11 min-w-[88px] rounded-md bg-[#4285F4] text-white font-semibold px-4
-            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4285F4]/60"
-              title="구글"
-            >
-              구글
-            </button>
-          </div>
-        </div>
       </div>
     </div>
   );

@@ -21,12 +21,12 @@ axiosInstance.interceptors.request.use((config) => {
 let isRefreshing = false; // 진행중 여부
 let failedQueue = []; // 요청 대기목록
 
-const processQueue = (error, token = null) => {
+const processQueue = (error) => {
   // 대기중인 요청 처리 함수임
   failedQueue.forEach((promise) => {
     // 대기목록을 순환 꺼내면 promise임
     if (error) promise.reject(error); // 에러발생하면 해당요청은 error를 반환
-    else promise.resolve(token); // 아니면 해당 요청에 토큰 넣어서 재요청
+    else promise.resolve(); // 아니면 해당 요청에 토큰 넣어서 재요청
   });
   failedQueue = []; // 완료 후 대기목록 초기화
 };
@@ -36,7 +36,6 @@ axiosInstance.interceptors.response.use(
   async (error) => {
     console.log("✅인터셉터 Response 에러 발생 로그확인", error);
     const originalRequest = error.config; // 실패한 기존 요청에 대한 에러
-    const isCurrentUser = originalRequest?.url?.includes("/currentUser"); // 실패한요청에 해당 경로가있는지 확인
     const isRefreshRequest = originalRequest?.url?.includes("/refresh"); // 실패한요청에 해당 경로가있는지 확인
 
     // 401 에러 처리 (인증 관련)

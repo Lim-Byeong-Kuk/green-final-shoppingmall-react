@@ -25,7 +25,7 @@ export default function SignUpPage() {
   const [terms, setTerms] = useState({
     tos: false, // 약관
     privacy: false, // 개인정보동의
-    age14: false // 만 14세이상 동의
+    age14: false, // 만 14세이상 동의
   });
 
   // 회원가입 form
@@ -43,7 +43,7 @@ export default function SignUpPage() {
     address: "", // 기본주소
     addressDetail: "", // 상세주소
     smsAgreement: false, // SMS 알림 동의
-    emailAgreement: false // Email 알림 동의
+    emailAgreement: false, // Email 알림 동의
   });
 
   // 모달 열릴 때 페이지 스크롤 잠금 overflow-hidden 클래스 추가
@@ -54,15 +54,9 @@ export default function SignUpPage() {
     return () => document.body.classList.remove("overflow-hidden"); // 클린업함수 이전 상태에서 추가했던 클래스를 제거
   }, [modalOpen]);
 
-  // 일반가입 클릭버튼
   const handleSignUpBtn = () => {
     setModalOpen(false); // 버튼이 눌리면, 모달 close
     setStep(1); // 약관 단계부터 시작
-  };
-
-  const handleSnsBtn = (type) => {
-    // TODO: 실제 SNS 연동 로직 필요 시 추가필요, 추후 API 연동
-    alert(`${type.toUpperCase()} 연동은 추후 추가`);
   };
 
   // 11-10 최종데이터 로그인 상태(State) 출력 로그 확인 및 Success 이동
@@ -110,25 +104,19 @@ export default function SignUpPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* 상단 홈/메인바 (항상 표시) */}
       <HomeBar />
-
-      {/* 가입 방식 선택 모달 (열려 있을 때만 표시) */}
       {modalOpen && ( // 모달이 true 라면
         <SignUpChoiceModal // 해당 컴포넌트를 출력하고
           open={true}
           onClose={() => setModalOpen(false)} // 모달 닫기
           onNormalJoin={handleSignUpBtn} // 일반 회원가입 버튼
-          onSNS={handleSnsBtn} // SNS 연동용 기능 ( 현재 미구현 )
         />
       )}
 
-      {/* 본문: 모달이 닫힌 후 렌더 */}
       {!modalOpen && (
         <div className="max-w-4xl mx-auto px-6 py-10">
           <h1 className="text-2xl font-bold mb-6">회원가입</h1>
 
-          {/* ✅ 로딩 표시 */}
           {loading && (
             <div className="text-center py-4 text-emerald-600">
               <p className="text-lg font-semibold">회원가입 처리중...</p>
