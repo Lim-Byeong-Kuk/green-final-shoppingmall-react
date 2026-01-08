@@ -68,6 +68,7 @@ const CouponIssueModal = ({ isOpen, onClose, selectedUsers }) => {
       // 성공 후 모달 닫기
       onClose();
       setSelectedCoupons([]);
+      alert("쿠폰이 성공적으로 발급 되었습니다.");
     } catch (error) {
       console.error("쿠폰 발급 중 오류:", error);
       alert("쿠폰 발급 중 오류가 발생했습니다.");

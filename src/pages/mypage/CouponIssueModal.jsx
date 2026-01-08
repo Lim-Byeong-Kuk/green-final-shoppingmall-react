@@ -19,8 +19,9 @@ export default function CouponIssueModal({ isOpen, onClose, onRegister }) {
       await onRegister(couponCode);
       setCouponCode("");
       onClose();
-    } catch (err) {
-      setError(err.message || "쿠폰 등록에 실패했습니다.");
+    } catch (error) {
+      setError(error.message || "쿠폰 등록에 실패했습니다.");
+      console.log("error: ", error);
     } finally {
       setIsLoading(false);
     }
