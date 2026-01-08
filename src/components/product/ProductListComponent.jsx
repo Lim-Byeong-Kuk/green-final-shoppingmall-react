@@ -141,7 +141,7 @@ const ProductListComponent = () => {
       {/*  사이드바 */}
       <aside className="w-full lg:w-64 shrink-0">
         {/*  사이드바 컨테이너  */}
-        <div className="sticky top-6 bg-white rounded-xl border border-gray-200 p-6 shadow-md">
+        <div className="sticky top-20 bg-white rounded-xl border border-gray-200 p-6 shadow-md">
           {/*  1차 카테고리 제목  */}
           <h2 className="text-2xl font-extrabold text-gray-900 pb-4 border-b border-gray-200">
             {mainCategory.name}
