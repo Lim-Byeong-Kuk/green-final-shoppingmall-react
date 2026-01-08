@@ -31,9 +31,8 @@ export default function MyPageCouponsPage() {
       // 쿠폰 목록 새로고침
       setRefreshKey((prev) => prev + 1);
     } catch (error) {
-      console.log("error : ", error.response.data);
-      const message =
-        error.response.data.message || "쿠폰 등록에 실패했습니다.";
+      console.log("error message : ", error.message);
+      const message = error.message || "쿠폰 등록에 실패했습니다.";
       throw new Error(message);
     }
   };
