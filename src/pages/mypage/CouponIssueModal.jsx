@@ -20,7 +20,7 @@ export default function CouponIssueModal({ isOpen, onClose, onRegister }) {
       setCouponCode("");
       onClose();
     } catch (error) {
-      setError(error.message || "쿠폰 등록에 실패했습니다.");
+      setError(error.message || "쿠폰 발급에 실패했습니다.");
       console.log("error: ", error);
     } finally {
       setIsLoading(false);
@@ -50,7 +50,7 @@ export default function CouponIssueModal({ isOpen, onClose, onRegister }) {
       <div className="relative bg-white rounded-2xl shadow-xl w-full max-w-md mx-4 p-6">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-bold">쿠폰 등록</h2>
+          <h2 className="text-xl font-bold">쿠폰 받기</h2>
           <button
             onClick={handleClose}
             className="text-zinc-400 hover:text-zinc-600 transition-colors"
@@ -86,7 +86,7 @@ export default function CouponIssueModal({ isOpen, onClose, onRegister }) {
 
           <div className="text-sm text-zinc-500 mb-6">
             <p>• 쿠폰 코드는 대소문자를 구분합니다.</p>
-            <p>• 이미 사용한 쿠폰은 재등록할 수 없습니다.</p>
+            <p>• 이미 사용한 쿠폰은 재발급할 수 없습니다.</p>
           </div>
 
           {/* Actions */}
@@ -105,7 +105,7 @@ export default function CouponIssueModal({ isOpen, onClose, onRegister }) {
               className="flex-1 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:bg-zinc-300 disabled:cursor-not-allowed cursor-pointer"
               disabled={isLoading}
             >
-              {isLoading ? "등록 중..." : "등록하기"}
+              {isLoading ? "발급 중..." : "발급받기"}
             </button>
           </div>
         </div>
