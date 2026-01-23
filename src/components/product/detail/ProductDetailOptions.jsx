@@ -22,10 +22,11 @@ const ProductDetailOptions = ({ product, selectedItems, setSelectedItems }) => {
     .filter((o) => o.currentStock === 0)
     .map((o) => o.id);
 
+  // 재입고 알림 신청여부 조회 함수
   const loadRestockAlarm = async () => {
     const data = await fetchRestockNotiStatusesByOption(
       auth?.user?.id,
-      soldOutOprionIds
+      soldOutOprionIds,
     );
 
     console.log("loadRestockAlarm : ", data);
@@ -67,7 +68,7 @@ const ProductDetailOptions = ({ product, selectedItems, setSelectedItems }) => {
           }
           if (delta > 0 && newQty > item.currentStock) {
             alert(
-              `죄송합니다. 현재 해당 옵션의 남은 재고는 ${item.currentStock}개입니다.`
+              `죄송합니다. 현재 해당 옵션의 남은 재고는 ${item.currentStock}개입니다.`,
             );
             return item;
           }
@@ -89,6 +90,7 @@ const ProductDetailOptions = ({ product, selectedItems, setSelectedItems }) => {
   //   console.log("selectedItems 변경", selectedItems);
   // }, [selectedItems]);
 
+  // 재입고 알림 신청 함수
   const applyRestockMessage = async (e, optionId) => {
     e.stopPropagation();
 
@@ -107,6 +109,7 @@ const ProductDetailOptions = ({ product, selectedItems, setSelectedItems }) => {
     }
   };
 
+  // 재입고 알림 취소 함수
   const cancelRestockMessage = async (e, optionId) => {
     e.stopPropagation();
     if (!auth.isLoggedIn) {
